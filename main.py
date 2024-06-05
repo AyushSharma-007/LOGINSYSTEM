@@ -1,6 +1,3 @@
-import numpy as np
-data = {"username":["password",["name","phones","emaili"],["security1","security2"],["backupcode"]]}
-print(data)
 import random as rn
 def backupcode():
     bc_list = []
@@ -8,6 +5,7 @@ def backupcode():
         code = rn.randrange(1000,10000)
         bc_list.append(code)
     return bc_list
+data = {"username":["password",["name","phones","emaili"],["security1","security2"],["backupcode"]]}
 def passwordcheck(password):
     while True:
         specChar = '!@#$%^&*_-+=<>'
@@ -51,6 +49,8 @@ def passwordcheck(password):
         
            
 def signup():
+  
+    
     l = []
     count = 1
     while count:       
@@ -92,18 +92,27 @@ def signup():
     backuplist = backupcode()
     data[username].append(backuplist)
     print("YOUR BACKUP CODES ARE:",backuplist)
-    return li
+   
     
-def signin():
-   user = input("ENTER A VALID USERNAME:")
-   if user  in data:
+def signin(): 
+  
+   usernames = input("ENTER A VALID USERNAME:")
+   if usernames  in data:
        print("USER NAME IN DATA:")
        pas = input("ENTER THE PASSWORRD FOR LOG-IN")
        print("SECUTIRY QUESTIONS")
        security1 = input("ENTER YOUR BLOOD GROUP")
        security = input("ENTER YOUR SCHOOL NAME") 
 
-    
+config = {
+  "apiKey": "apiKey",
+  "authDomain": "assignment-efe1b-default-rtdb.firebaseapp.com",
+  "databaseURL": "https://assignment-efe1b-default-rtdb.firebaseio.com/",
+  "storageBucket": "assignment-efe1b-default-rtdb.appspot.com"
+}   
+firebase = pb.initialize_app(config)
+db = firebase.database()
+
 print("-----------WELCOME TO THE LOGIN - PAGE----------")
 print("1-SIGN-UP TO OUR AUTHENTICATION SYSTEM")
 print("2- ALREADY HAVE AN ACCOUNT SIGN-IN")
@@ -119,3 +128,4 @@ elif n ==0:
     exit(0)
 else:
     print("ENTER THE VALID OPTION")
+db.child("username").update(data)
