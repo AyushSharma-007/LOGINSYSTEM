@@ -78,7 +78,14 @@ def signup():
                 print("Phone number is invalid")
                 ph = 1
             else: ph = 0
-    emaili = input("ENTER YOUR VALID EMAIL- ID") 
+     while em:
+        emaili = input("ENTER YOUR VALID EMAIL- ID") 
+        if '@'and '.com' in emaili : 
+            print("valid email")
+            em = 0
+        else                       : 
+            print("invalid email") 
+            em = 1
     print("SECUTIRY QUESTIONS")
     security1 = input("ENTER YOUR BLOOD GROUP")
     security2 = input("ENTER YOUR SCHOOL NAME")
