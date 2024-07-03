@@ -2,6 +2,7 @@ import random as rn
 import pyaudio  
 import wave
 // code will be added to it 
+// will added to leader board
 def backupcode():
     bc_list = []
     for i in range(4):
